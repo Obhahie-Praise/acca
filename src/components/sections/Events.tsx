@@ -1,17 +1,36 @@
-import React from "react";
 import { mockEvents } from "@/constants";
+import { Calendar, Search } from "lucide-react";
+import Link from "next/link";
 
 const Events = () => {
   return (
-    <section className="py-16 px-4 md:px-8 mt-30">
+    <section className="py-16 px-4 md:px-8 mt-20" id="events">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-12 text-center">
+        <div className="text-center">
           <h2 className="text-3xl md:text-4xl font-bold py-1">
             Upcoming Events
           </h2>
           <p className="text-gray-600">
             Discover and join amazing events happening in Africa
           </p>
+        </div>
+
+        <div className="flex justify-center my-6">
+          <form className="flex items-center justify-center pl-4 gap-2 border border-blue-500 rounded-lg">
+            <Search width={20} height={20} className="text-blue-500" />
+            <input
+              type="text"
+              className="h-full px-1 focus:outline-none"
+              placeholder="Search For Events"
+            />
+            <Link
+              href=""
+              type="submit"
+              className="bg-blue-500 py-1.5 px-3 font-medium text-white rounded-lg hover:bg-blue-400 transition-colors"
+            >
+              Search
+            </Link>
+          </form>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -23,7 +42,7 @@ const Events = () => {
               {/* Event Image */}
               <div className="h-48 overflow-hidden bg-gray-200">
                 <img
-                loading="lazy"
+                  loading="lazy"
                   src={event.image}
                   alt={event.name}
                   className="w-full h-full object-cover hover:scale-105 transition-transform"
@@ -66,13 +85,19 @@ const Events = () => {
                   </div>
 
                   {/* Date */}
-                  <p className="text-sm text-gray-600 mb-4">
-                    {new Date(event.startDateTime).toLocaleDateString("en-US", {
-                      month: "short",
-                      day: "numeric",
-                      year: "numeric",
-                    })}
-                  </p>
+                  <div className="flex gap-1 items-center mb-4">
+                    <Calendar width={13} height={13} className="text-zinc-600" />
+                    <p className="text-sm text-zinc-600">
+                      {new Date(event.startDateTime).toLocaleDateString(
+                        "en-US",
+                        {
+                          month: "short",
+                          day: "numeric",
+                          year: "numeric",
+                        }
+                      )}
+                    </p>
+                  </div>
                 </div>
 
                 {/* Footer */}

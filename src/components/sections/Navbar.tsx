@@ -56,7 +56,7 @@ const Navbar = () => {
         <div className="flex items-center">
           <Link
             href="sign-in"
-            className="ml-4 px-4 py-1.5 mr-4 font-medium hover:text-zinc-700 transition-colors rounded-lg text-black duration-300 border-2 border-blue-500 hover:border-zinc-300"
+            className="ml-4 px-4 py-1.5 mr-4 font-medium hover:text-zinc-700 transition-colors rounded-lg text-zinc-500 duration-300 border-2 border-zinc-300 hover:border-zinc-200"
           >
             Sign in
           </Link>
