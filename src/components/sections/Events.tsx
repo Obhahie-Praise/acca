@@ -23,6 +23,7 @@ const Events = () => {
               {/* Event Image */}
               <div className="h-48 overflow-hidden bg-gray-200">
                 <img
+                loading="lazy"
                   src={event.image}
                   alt={event.name}
                   className="w-full h-full object-cover hover:scale-105 transition-transform"
